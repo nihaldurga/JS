@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Course Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <h1 id="welcome-heading">Student Course Dashboard</h1>
+        <p>Explore courses and manage your learning.</p>
+    </header>
+
+    <main>
+<section>
+    <input
+        type="text"
+        id="search-input"
+        placeholder="Search courses..."
+    >
+
+    <button id="search-button">Search</button>
+
+    <button id="show-all">All Courses</button>
+    <button id="show-enrolled">Enrolled Courses</button>
+</section>
+
+        <section>
+            <h2>Available Courses</h2>
+            <p id="course-count">Total courses: 6</p>
+
+            <div id="course-container">
+
+                <div class="course-card" data-course="Java">
+                    <h3>Java Programming</h3>
+                    <p>Learn Java fundamentals and OOP.</p>
+                    <button class="enroll-btn">Enroll</button>
+                </div>
+
+                <div class="course-card" data-course="Python">
+                    <h3>Python Programming</h3>
+                    <p>Learn Python from the basics.</p>
+                    <button class="enroll-btn">Enroll</button>
+                </div>
+
+                <div class="course-card" data-course="JavaScript">
+                    <h3>JavaScript Development</h3>
+                    <p>Master DOM manipulation and events.</p>
+                    <button class="enroll-btn">Enroll</button>
+                </div>
+
+                <div class="course-card" data-course="HTML CSS">
+                    <h3>HTML and CSS</h3>
+                    <p>Build and style web pages.</p>
+                    <button class="enroll-btn">Enroll</button>
+                </div>
+
+                <div class="course-card" data-course="DSA">
+                    <h3>Data Structures and Algorithms</h3>
+                    <p>Practice problem-solving techniques.</p>
+                    <button class="enroll-btn">Enroll</button>
+                </div>
+
+                <div class="course-card" data-course="AI ML">
+                    <h3>Artificial Intelligence and ML</h3>
+                    <p>Explore machine learning concepts.</p>
+                    <button class="enroll-btn">Enroll</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="enrolled-section">
+            <h2>My Enrolled Courses</h2>
+            <div id="enrolled-container">
+                <p id="empty-message">You have not enrolled in any courses.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
