@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship Game</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <h1 id="game-heading">Battleship</h1>
+
+    <div id="game-container">
+        <div id="game-grid">
+            <div class="cell"><img src="ship.png" alt="Ship"></div>
+            <div class="cell"><img src="water.png" alt="Water"></div>
+            <div class="cell"><img src="water.png" alt="Water"></div>
+            <div class="cell"><img src="ship.png" alt="Ship"></div>
+
+            <div class="cell"><img src="water.png" alt="Water"></div>
+            <div class="cell"><img src="ship.png" alt="Ship"></div>
+            <div class="cell"><img src="water.png" alt="Water"></div>
+            <div class="cell"><img src="water.png" alt="Water"></div>
+
+            <div class="cell"><img src="ship.png" alt="Ship"></div>
+            <div class="cell"><img src="water.png" alt="Water"></div>
+            <div class="cell"><img src="water.png" alt="Water"></div>
+            <div class="cell"><img src="ship.png" alt="Ship"></div>
+
+            <div class="cell"><img src="water.png" alt="Water"></div>
+            <div class="cell"><img src="water.png" alt="Water"></div>
+            <div class="cell"><img src="ship.png" alt="Ship"></div>
+            <div class="cell"><img src="water.png" alt="Water"></div>
+        </div>
+
+        <button id="reset-button">Reset</button>
+    </div>
+
+    <div id="rules">
+        <h2>Rules</h2>
+        <p>1. Click on the cells to reveal the image hidden behind them.</p>
+        <p>2. There are 5 ships hidden in the game.</p>
+        <p>3. You win if you find all 5 ships in 8 clicks or less, else you lose.</p>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
