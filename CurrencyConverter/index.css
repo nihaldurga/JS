@@ -1,0 +1,168 @@
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page */
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #333;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+/* Main Container */
+.converter-container {
+  width: 100%;
+  max-width: 550px;
+  padding: 20px;
+}
+
+/* Converter Section */
+.converter {
+  background-color: #F8D800;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  height: auto;
+}
+
+/* Heading */
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* Form Groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Labels */
+label {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* Input and Dropdowns */
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* Focus Effect */
+input:focus,
+select:focus {
+  border-color: #555;
+  box-shadow: 0 0 4px rgba(85, 85, 85, 0.3);
+}
+
+/* Currency Selection */
+.currency-selection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* TO Label */
+.to-label {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Convert Button */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+
+  background-color: #007bff;
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Result */
+.result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Error */
+.error {
+  margin-top: 15px;
+  color: #d00000;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .converter {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .currency-selection {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .to-label {
+    margin: 0 0 15px;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+}
