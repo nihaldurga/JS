@@ -1,52 +1,92 @@
-let text = document.querySelector('.textarea');
-let buttons = document.querySelectorAll('.btn');
-
-let expression = '';
-
-buttons.forEach((button) => {
-
-    button.addEventListener('click', () => {
-
-        let value = button.textContent;
-
-        // Numbers and decimal
-        if ((value >= '0' && value <= '9') || value === '.') {
-            expression += value;
-            text.value = expression;
+const buttons=document.querySelectorAll("button");
+const display=document.getElementById("display");
+let firstExperssion="";
+let secondExperssion="";
+let operation="";
+buttons.forEach((i)=>{
+    i.addEventListener("click",()=>{
+        if (i.textContent === '.') {
+            if (operation) {
+                if (!secondExperssion.includes('.')) {
+                    secondExperssion += '.';
+                    display.textContent = secondExperssion;
+                }
+            } else {
+                if (!firstExperssion.includes('.')) {
+                    firstExperssion += '.';
+                    display.textContent = firstExperssion;
+                }
+            }
+            return;
         }
-
-        // Operators
-        if (value === '+' || value === '-' || value === '*' || value === '/') {
-
-            expression += value;
-            text.value = expression;
-        }
-
-        // Equal
-        if (value === '=') {
-
-            try {
-                let answer = eval(expression);
-
-                text.value = answer;
-                expression = String(answer);
-
-            } catch (error) {
-
-                text.value = 'Error';
-                expression = '';
-
+        if( Number(i.textContent) >= 0 && Number(i.textContent) <= 9 && i.textContent !== ""){
+            if(operation){
+                secondExperssion+=i.textContent;
+                display.textContent=secondExperssion;
+            }
+            else{
+                firstExperssion+=i.textContent;
+                display.textContent=firstExperssion;
             }
         }
+        else{
+            console.log(i.textContent);
+            let value=i.textContent;
+            if (["+", "-", "%", "×"].includes(value)) {
+                if (firstExperssion !== "") {
+                    operation = value;
+                    display.textContent="";
+                }
+            }
+            else if(i.textContent==='C'){
+                firstExperssion="";
+                secondExperssion="";
+                operation="";
+                display.textContent = "0";
+            }
+            else if (value === "=") {
+                if (
+                    firstExperssion === "" ||
+                    secondExperssion === "" ||
+                    operation === ""
+                ) {
+                    return;
+                }
 
-        // Clear
-        if (value === 'ce') {
+                const number1 = Number(firstExperssion);
+                const number2 = Number(secondExperssion);
+                let result;
 
-            expression = '';
-            text.value = '';
+                if (operation === "+") {
+                    result = number1 + number2;
+                } else if (operation === "-") {
+                    result = number1 - number2;
+                } else if (operation === "×") {
+                    result = number1 * number2;
+                } else if (operation === "%") {
+                    result = number1 % number2;
+                }
+
+                display.textContent = result;
+
+                firstExperssion = String(result);
+                secondExperssion = "";
+                operation = "";
+    
+            }
+            else if (value === "Del") {
+                if (secondExperssion !== "") {
+                    secondExperssion = secondExperssion.slice(0, -1);
+                    display.textContent = secondExperssion || "0";
+                } else if (operation) {
+                    operation = "";
+                    display.textContent = firstExperssion || "0";
+                } else {
+                    firstExperssion = firstExperssion.slice(0, -1);
+                    display.textContent = firstExperssion || "0";
+            }
+            }
 
         }
-
-    });
-
-});
+    })
+})
