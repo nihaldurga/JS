@@ -1,3 +1,387 @@
-.space{
-        margin-left: 10px;
+```css
+/* =========================
+   Global Styles
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f7f8fc;
+  min-height: 100vh;
+  padding: 40px 16px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* =========================
+   Main Container
+========================= */
+.todo-container {
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   Header
+========================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background-color: #3f51b5;
+  color: #fff;
+  padding: 16px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #333;
+  font-family: inherit;
+}
+
+/* =========================
+   Content
+========================= */
+.todo-content {
+  padding: 16px;
+}
+
+/* =========================
+   Add and Edit Forms
+========================= */
+.task-form,
+.task-form1 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.task-form input,
+.task-form1 input {
+  flex: 1 1 100px;
+  min-width: 0;
+  width: auto;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+input:focus {
+  outline: 2px solid rgba(63, 81, 181, 0.2);
+  border-color: #3f51b5;
+}
+
+/* =========================
+   Buttons
+========================= */
+button {
+  font-family: inherit;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#add-task-btn,
+.update-task-btn {
+  padding: 8px 12px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+#add-task-btn:hover,
+#update-task-btn:hover {
+  background-color: #388e3c;
+}
+
+/* =========================
+   Inline Validation Message
+========================= */
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ffcc80;
+  border-radius: 5px;
+  background-color: #ffecb3;
+  color: #795548;
+  font-size: 14px;
+}
+
+.close-error {
+  background: transparent;
+  color: #795548;
+  font-size: 22px;
+}
+
+/* =========================
+   Task Headings
+========================= */
+.task-heading,
+.task-subheading {
+  color: #3f51b5;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.task-subheading {
+  font-size: 16px;
+}
+
+.task-day {
+  margin-bottom: 15px;
+}
+
+.day-heading {
+  padding: 10px;
+  background-color: #e8f5e9;
+  color: #333;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.task-group {
+  padding: 12px 5px;
+}
+
+.task-items {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   Individual Tasks
+========================= */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 6px;
+  border-bottom: 1px solid #ddd;
+  font-size: 13px;
+}
+
+.task-details {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.task-time {
+  color: #333;
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 5px 9px;
+  font-size: 11px;
+}
+
+.edit-btn {
+  background-color: #ffca28;
+  color: #333;
+}
+
+.edit-btn:hover {
+  background-color: #fbc02d;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Edit form inside a task */
+.task-item .task-form1 {
+  flex: 1 1 100%;
+  width: 100%;
+  margin: 10px 0 0;
+  background-color: #f7f8fc;
+  border: 1px solid #e0e0e0;
+}
+
+.task-item .task-form1 input {
+  flex: 1 1 100px;
+}
+
+/* =========================
+   Empty State
+========================= */
+.empty-state {
+  padding: 18px;
+  margin-top: 15px;
+  border: 1px solid #ffcc80;
+  border-radius: 5px;
+  background-color: #ffecb3;
+  color: #795548;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* =========================
+   Popup Overlay
+========================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+   Validation Modal
+========================= */
+.validation-modal {
+  position: relative;
+  width: 100%;
+  max-width: 365px;
+  padding: 28px 20px 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: popup-appear 0.2s ease-out;
+}
+
+.validation-modal p {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  padding: 0 3px;
+  background: transparent;
+  color: #aaa;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.modal-close:hover {
+  color: #555;
+}
+
+.ok-btn {
+  padding: 8px 18px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 12px;
+}
+
+.ok-btn:hover {
+  background-color: #388e3c;
+}
+
+@keyframes popup-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   Responsive Layout
+========================= */
+@media (max-width: 520px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .task-form,
+  .task-form1 {
+    flex-wrap: wrap;
+  }
+
+  .task-form input,
+  .task-form1 input {
+    flex: 1 1 40%;
+    width: 100%;
+  }
+
+  #add-task-btn,#update-task {
+    flex: 1 1 100%;
+  }
+
+  .task-item {
+    flex-wrap: wrap;
+  }
+
+  .task-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }

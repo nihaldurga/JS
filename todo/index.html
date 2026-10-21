@@ -1,25 +1,180 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
-    <title>todo</title>
+
+    <title>To-Do List</title>
+
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <div id="main">
-    <div>
-        <h1>TODO LIST</h1>
+
+    <main class="todo-container">
+
+        <!-- Header -->
+        <header class="header">
+            <h1>To-Do List</h1>
+
+            <input
+                type="search"
+                id="search-input"
+                placeholder="Search tasks..."
+            >
+        </header>
+
+        <div class="todo-content">
+
+            <!-- Error Message -->
+            <div
+                class="error-message"
+                id="error-message"
+                hidden
+            >
+                <span>Please fill in all fields</span>
+
+                <button
+                    type="button"
+                    class="close-error"
+                    aria-label="Close"
+                >
+                    &times;
+                </button>
+            </div>
+
+            <!-- Add Task Form -->
+            <form class="task-form" id="todo-form">
+
+                <input
+                    type="text"
+                    id="task-input"
+                    placeholder="Add your task here"
+                >
+
+                <input
+                    type="date"
+                    id="task-date"
+                    aria-label="Select task date"
+                >
+
+                <input
+                    type="time"
+                    id="task-time"
+                    aria-label="Select task time"
+                >
+
+                <button type="submit" id="add-task-btn">
+                    Add Task
+                </button>
+
+            </form>
+
+            <!-- Edit Task Form -->
+            <form
+                class="task-form1"
+                id="todo-form1"
+                hidden
+            >
+
+                <input
+                    type="text"
+                    id="edit-task-input"
+                    placeholder="Update your task"
+                >
+
+                <input
+                    type="date"
+                    id="edit-task-date"
+                    aria-label="Update task date"
+                >
+
+                <input
+                    type="time"
+                    id="edit-task-time"
+                    aria-label="Update task time"
+                >
+
+                <button type="submit" id="update-task">
+                    Update Task
+                </button>
+
+            </form>
+
+            <!-- Task Display -->
+            <section class="task-list" id="task-list">
+
+                <section class="task-day">
+
+                    <div class="task-group">
+                        <h2 class="task-subheading">
+                            Due Tasks
+                        </h2>
+
+                        <div
+                            id="due-tasks"
+                            class="task-items"
+                        >
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Other date sections -->
+                <div id="other-days"></div>
+
+                <!-- Empty State -->
+                <div
+                    id="empty-state"
+                    class="empty-state"
+                    hidden
+                >
+                    No tasks found. Add a task to get started!
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Validation Popup -->
+    <div
+        class="modal-overlay"
+        id="validation-modal"
+        hidden
+    >
+
+        <div
+            class="validation-modal"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="modal-message"
+        >
+
+            <button
+                type="button"
+                class="modal-close"
+                aria-label="Close"
+            >
+                &times;
+            </button>
+
+            <p id="modal-message">
+                Please fill in all fields.
+            </p>
+
+            <button type="button" class="ok-btn">
+                OK
+            </button>
+
+        </div>
+
     </div>
-    <div>
-        <input type="text"  id="text" placeholder="Task">
-        <button id="btn">Add Task</button>
-    </div>
-    <div>
-        <ul id="li">
-        </ul>
-    </div>
-    </div>
+
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+
 </body>
-<script src="index.js"></script>
 </html>
