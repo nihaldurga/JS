@@ -84,14 +84,14 @@ function getCustomerReport(orders) {
 
       return acc;
     }, {})
-    Object.values(ans).map(customer => ({
+    const ans1=Object.values(ans).map(customer => ({
       ...customer,
       categories: [...new Set(customer.categories)],
       averageOrder: customer.totalSpent / customer.totalOrders
     }))
     .filter(customer => customer.totalSpent >= 7000)
     .sort((a, b) => b.totalSpent - a.totalSpent);
-    return ans;
+    return ans1;
 }
 
 console.log(getCustomerReport(orders));
